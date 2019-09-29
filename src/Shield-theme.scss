@@ -1,0 +1,11 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$shield-primary: mat-palette($mat-blue-grey, 800);
+$shield-accent: mat-palette($mat-light-blue, 900);
+$shield-warn: mat-palette($mat-deep-orange);
+
+$shield-theme: mat-dark-theme($shield-primary, $shield-accent, $shield-warn);
+
+@include angular-material-theme($shield-theme);
