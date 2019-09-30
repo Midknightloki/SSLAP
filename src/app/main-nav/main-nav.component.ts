@@ -9,13 +9,15 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./main-nav.component.css']
 })
 export class MainNavComponent {
+  
+  navLinks=[
+      {path: 'ga-home', label: 'GA'},
+      {path: 'qa-home', label: 'QA'},
+      {path: 'drc-home', label: 'DRC'}
+  ];
+  activeLink = this.navLinks[0];
+  background = 'mat-white';
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
-
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor() {}
 
 }

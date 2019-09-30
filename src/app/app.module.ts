@@ -10,11 +10,27 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { MatTabsModule } from '@angular/material'
+import { MatTabsModule } from '@angular/material';
+import { GaHomeComponent } from './ga-home/ga-home.component';
+import { QaHomeComponent } from './qa-home/qa-home.component';
+import { DrcHomeComponent } from './drc-home/drc-home.component';
+import { RouterModule, Routes, Router } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: 'ga-home', component: GaHomeComponent },
+  { path: 'qa-home', component: QaHomeComponent },
+  { path: 'drc-home', component: DrcHomeComponent },
+  
+
+];
+
 @NgModule({
   declarations: [
     AppComponent,
-    MainNavComponent
+    MainNavComponent,
+    GaHomeComponent,
+    QaHomeComponent,
+    DrcHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +41,12 @@ import { MatTabsModule } from '@angular/material'
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatTabsModule
+    MatTabsModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
